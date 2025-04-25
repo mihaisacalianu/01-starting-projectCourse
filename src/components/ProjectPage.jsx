@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import  NewProjectData from "./states.jsx";
-export default function ProjectPage(){
+export default function ProjectPage({visibility,indexP}){
   const projectInfo = useContext(NewProjectData);
-  console.log(projectInfo);
+
   return(
-    <>
-    {projectInfo.map((project,index)=>{
-      return <h1 key={index}>{project.title}</h1>
-    })}
-    </>
+    <div className={`flex-col ${!visibility ? 'hidden': ""} mb-2`}>
+      {projectInfo[indexP] ? <h1><strong>Project name: </strong>{projectInfo[indexP].title}</h1>: null}
+    </div>
   );
 }

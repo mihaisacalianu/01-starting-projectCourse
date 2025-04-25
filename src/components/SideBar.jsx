@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 import  NewProjectData from "./states.jsx";
 
 
-export default function SideBar(){
+export default function SideBar({handleProjectClick}){
   const projectInfo = useContext(NewProjectData);
 
   return(
@@ -12,9 +12,8 @@ export default function SideBar(){
         <button className="bg-gray-800 text-sm rounded-md p-1 hover:bg-gray-600">+ Add Project</button>
         <div className="flex-col">
           {projectInfo.map((project,index)=>{
-            return project.title ? <button key={index} className="mt-4 bg-gray-900 p-1.5 w-[80%] text-left hover:bg-gray-600">{project.title}</button>: null
+            return project.title ? <button onClick={()=>handleProjectClick(index)} key={index} className="mt-4 bg-gray-900 p-1.5 w-[80%] text-left hover:bg-gray-600">{project.title}</button>: null
           })}
-
         </div>
       </div>
     </>

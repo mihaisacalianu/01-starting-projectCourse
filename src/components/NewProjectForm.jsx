@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 export default function NewProjectForm({handleForm, handleChange, hideMainContent}){
   const [formData, setFormData] = useState(
     {
       title: '',
       description: '',
-      date: ''
+      date: '',
     }
   );
-
   const inputStyle = "bg-gray-300 w-[100%] mb-3 p-1";
 
   function handleChange(event){
     const {name, value} = event.target;
-    setFormData((prevFormData)=>({...prevFormData,[name]: value}))
+    setFormData((prevFormData)=>({...prevFormData,[name]: value,
+    }))
   }
 
   function handleCancel() {
