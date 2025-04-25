@@ -35,13 +35,15 @@ function App() {
     setProjectPageVisibility(true);
     setProjectIndex(index);
   }
-  console.log('inside app component: ', projectIndex)
+
   return (
     <>
     <div className="flex">
     <NewProjectData.Provider value={newProjectC}>
       <SideBar
-      handleProjectClick={handleProjectClick}/>
+      handleProjectClick={handleProjectClick}
+      handleClick={handleClick}
+      />
       <MainContent
       handleClick={handleClick}
       hideMainContent={mainContent}
