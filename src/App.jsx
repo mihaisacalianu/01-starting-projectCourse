@@ -3,6 +3,7 @@ import MainContent from "./components/MainContent.jsx"
 import NewProjectForm from "./components/NewProjectForm.jsx";
 import { useState,useContext } from "react";
 import  NewProjectData from "./components/states.jsx";
+import ProjectPage from "./components/ProjectPage.jsx";
 function App() {
   const [newProjectForm, setNewProjectForm] = useState(false);
   const [mainContent, setMainContent] = useState("");
@@ -20,9 +21,6 @@ function App() {
       description: formData.description,
       date: formData.date
     })
-    // newProjectC.title = formData.title;
-    // newProjectC.description = formData.description;
-    // newProjectC.date = formData.date;
     setNewProjectForm(false);
     setMainContent("");
   }
@@ -37,6 +35,7 @@ function App() {
       hideMainContent={mainContent}
       />
       {newProjectForm && <NewProjectForm handleForm={handleForm} hideMainContent={mainContent}/>}
+      <ProjectPage/>
     </NewProjectData.Provider>
     </div>
     </>
