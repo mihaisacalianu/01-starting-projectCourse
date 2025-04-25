@@ -36,21 +36,30 @@ function App() {
     setProjectIndex(index);
   }
 
+  function handleProjectDelete(indexP) {
+    newProjectC.pop(indexP)
+    setMainContent("");
+    setProjectPageVisibility(false);
+  }
+
   return (
     <>
     <div className="flex">
     <NewProjectData.Provider value={newProjectC}>
       <SideBar
-      handleProjectClick={handleProjectClick}
-      handleClick={handleClick}
+        handleProjectClick={handleProjectClick}
+        handleClick={handleClick}
       />
       <MainContent
-      handleClick={handleClick}
-      hideMainContent={mainContent}
+        handleClick={handleClick}
+        hideMainContent={mainContent}
       />
       {newProjectForm && <NewProjectForm handleForm={handleForm} hideMainContent={mainContent}/>}
       <ProjectPage
-      visibility={projectPageVisbility} indexP={projectIndex}/>
+        visibility={projectPageVisbility}
+        indexP={projectIndex}
+        handleProjectDelete={handleProjectDelete}
+       />
     </NewProjectData.Provider>
     </div>
     </>
