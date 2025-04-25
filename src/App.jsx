@@ -15,9 +15,14 @@ function App() {
 
   function handleForm(event,formData){
     event.preventDefault();
-    newProjectC.title = formData.title;
-    newProjectC.description = formData.description;
-    newProjectC.date = formData.date;
+    newProjectC.push({
+      title: formData.title,
+      description: formData.description,
+      date: formData.date
+    })
+    // newProjectC.title = formData.title;
+    // newProjectC.description = formData.description;
+    // newProjectC.date = formData.date;
     setNewProjectForm(false);
     setMainContent("");
   }
@@ -26,12 +31,12 @@ function App() {
     <>
     <div className="flex">
     <NewProjectData.Provider value={newProjectC}>
-      <SideBar/>
+      <SideBar />
       <MainContent
       handleClick={handleClick}
       hideMainContent={mainContent}
       />
-      {newProjectForm && <NewProjectForm handleForm={handleForm}/>}
+      {newProjectForm && <NewProjectForm handleForm={handleForm} hideMainContent={mainContent}/>}
     </NewProjectData.Provider>
     </div>
     </>
