@@ -14,6 +14,7 @@ function App() {
   function handleClick() {
     setNewProjectForm(true);
     setMainContent("hidden");
+    setProjectPageVisibility(false);
   }
 
   function handleForm(event,formData){
@@ -22,18 +23,18 @@ function App() {
       title: formData.title,
       description: formData.description,
       date: formData.date,
-      id: formData.id
+      id: formData.id,
+      tasks: []
     })
     setNewProjectForm(false);
     setMainContent("");
   }
 
   function handleProjectClick(index) {
-    console.log('you pressed a project!',index)
-    console.log(index)
     setMainContent("hidden");
     setProjectPageVisibility(true);
     setProjectIndex(index);
+    setNewProjectForm(false);
   }
 
   function handleProjectDelete(indexP) {

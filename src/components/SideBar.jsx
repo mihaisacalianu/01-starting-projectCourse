@@ -7,7 +7,7 @@ export default function SideBar({handleProjectClick, handleClick}){
 
   return(
     <>
-      <div className="flex-col justify-center items-center text-center bg-black text-white rounded-tr-lg h-[100dvh] mt-6 w-[30%]">
+      <div className="flex-col justify-center items-center text-center bg-black text-white rounded-tr-lg h-[100dvh] mt-6 min-w-[30%]">
         <h1 className="mb-5 mt-10">YOUR PROJECTS</h1>
         <button className="bg-gray-800 text-sm rounded-md p-1 hover:bg-gray-600" onClick={handleClick}>+ Add Project</button>
         <div className="flex-col">
