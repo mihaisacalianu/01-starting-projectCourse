@@ -1,5 +1,5 @@
 import { useState,useRef } from "react";
-export default function NewProjectForm({handleForm, handleChange, hideMainContent}){
+export default function NewProjectForm({handleForm, handleChange, hideMainContent,handleCancel}){
   const [formData, setFormData] = useState(
     {
       title: '',
@@ -12,18 +12,11 @@ export default function NewProjectForm({handleForm, handleChange, hideMainConten
   function handleChange(event){
     const {name, value} = event.target;
     setFormData((prevFormData)=>({...prevFormData,[name]: value,
-    }))
+    }));
+    console.log(event);
   }
 
-  function handleCancel() {
-    console.log(hideMainContent);
-    setFormData({
-      title: '',
-      description: '',
-      date: ''
-    })
 
-  }
 
   return(
     <div className="flex-col w-[60%] h-[100dvh] px-8">

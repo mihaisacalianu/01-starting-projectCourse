@@ -43,6 +43,12 @@ function App() {
     setProjectPageVisibility(false);
   }
 
+  function handleCancel() {
+    console.log('you pressed')
+    setNewProjectForm(false);
+    setMainContent("");
+  }
+
   return (
     <>
     <div className="flex">
@@ -55,7 +61,10 @@ function App() {
         handleClick={handleClick}
         hideMainContent={mainContent}
       />
-      {newProjectForm && <NewProjectForm handleForm={handleForm} hideMainContent={mainContent}/>}
+      {newProjectForm && <NewProjectForm
+       handleForm={handleForm}
+       hideMainContent={mainContent}
+       handleCancel={handleCancel}/>}
       <ProjectPage
         visibility={projectPageVisbility}
         indexP={projectIndex}

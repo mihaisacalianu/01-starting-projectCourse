@@ -7,7 +7,8 @@ export default function ProjectPage({visibility,indexP,handleProjectDelete}){
 
   function handleInput(input) {
     setProjectTasks(()=> [...projectTasks,{name: input.current.value}]);
-    // console.log(projectTasks)
+    console.log(input.current);
+    // input.current.value = ""
   }
 
   function handleClearTask(index) {

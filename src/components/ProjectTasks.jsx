@@ -3,11 +3,15 @@ import { useState, useRef } from "react";
 export default function ProjectTasks({handleInput, tasks, handleClearTask}) {
 
   const input = useRef();
+  // const [inputText, setInputText] = useState('');
 
+  // function handleInputChange(event) {
+  //   setInputText(event.target.value)
+  // }
   return(
     <div className="flex-col">
       <h2 className="mb-4"><strong>Tasks</strong></h2>
-      <input type="text" name="task-name"  ref={input} className="mr-4 bg-slate-200" />
+      <input type="text" name="task-name"   ref={input} className="mr-4 bg-slate-200" />
       <button onClick={()=>handleInput(input)}>Add Task</button>
       <div className="flex-col justify-between w-[70%] mt-10 bg-slate-100 p-3 rounded-md">
         <div className="flex-col mt-2 items-center justify-center">
